@@ -6,7 +6,8 @@ import (
 )
 
 func init() {
-	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("/site.css"))))
+	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
+	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
 	http.HandleFunc("/", home)
 	http.ListenAndServe(":8080", nil)
 }

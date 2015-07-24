@@ -17,14 +17,30 @@
 </head>
 
 <body layout="column">
-<md-toolbar layout="row">
-  <div class="md-toolbar-tools">
-    <h1>hello world</h1>
-  </div>
 
-</md-toolbar>
+    <div id="top" layout="row" class="md-accent">
+      <div class="main-container" layout="row" layout-align="space-around center">
+        <img src="/images/ronmcdon.jpg" id="clown">
+        <span id="title" class="md-flex md-display-4">BURGERGEDDON</span>
+      </div>
+    </div>
 
-<div class="test">test</div>
+    <div layout="row" class="md-display-2" layout-align="center">
+      <span id="tagline">"NO BEEF LEFT BEHIND"</span>
+    </div>
+
+    <div layout="row" id="week">
+      <md-card layout="flex" class="weekday">
+        <img ng-src="/images/bugeye.jpg" class="md-card-image" alt="Bug Eyed Betty's">
+        <md-card-content>
+          <h2>Bug Eyed Betty's</h2>
+        </md-card-content>
+
+      </md-card>
+
+    </div>
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
