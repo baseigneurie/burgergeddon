@@ -22,8 +22,34 @@
   font-style: italic;
 }
 
+.place-image {
+  height: 200px;
+  width: inherit;
+}
+
 .weekday {
-  margin: 10px 15px;
+  margin: 10px;
   background-color: #0F19A2;
   color: #D4BE32;
+  width: 220px;
+}
+
+.my-button {
+  background-color: #F23232;
+  color: #FFFFFF;
+}
+
+.infoTop {
+  background-color: #0F19A2;
+  box-shadow: 0px 2px 5px 1px gray;
+  color: #FFFFFF;
+}
+
+.signupButton {
+  background-color: #0F19A2;
+  color: #FFFFFF;
+}
+
+.flame {
+  width: 100%;
 }

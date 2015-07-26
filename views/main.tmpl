@@ -2,7 +2,7 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" ng-app="mainApp">
 <head>
   <meta charset="utf-8">
   <title>Burgergeddon | The beefiest week in the year!</title>
@@ -29,17 +29,89 @@
       <span id="tagline">"NO BEEF LEFT BEHIND"</span>
     </div>
 
+  <div layout="column"  class="main-container" ng-controller="WeekCtrl as wc">
     <div layout="row" id="week">
-      <md-card layout="flex" class="weekday">
-        <img ng-src="/images/bugeye.jpg" class="md-card-image" alt="Bug Eyed Betty's">
+      <md-card layout="flex" class="weekday" id="monday" ng-repeat="r in wc.restaurants">
+        <img src="{{ r.image }}" class="md-card-image place-image" alt="Bug Eyed Betty's">
         <md-card-content>
-          <h2>Bug Eyed Betty's</h2>
+          <h2 class="md-title">{{ r.day }}</h2>
+          <p>{{ r.name }}</p>
         </md-card-content>
-
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-button md-raised my-button">More Info</md-button>
+        </div>
       </md-card>
+
+    <!--  <md-card layout="flex" class="weekday" id="tuesday">
+        <img src="/images/amberinn.jpg" class="md-card-image place-image" alt="Amber Inn">
+        <md-card-content>
+          <h2 class="md-title">TUESDAY</h2>
+          <p>Amber Inn</p>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-button md-raised my-button">More Info</md-button>
+        </div>
+      </md-card>
+
+      <md-card layout="flex" class="weekday" id="wednesday">
+        <img src="/images/mogies.jpg" class="md-card-image place-image" alt="Mogie's Pub">
+        <md-card-content>
+          <h2 class="md-title">WEDNESDAY</h2>
+          <p>Mogie's Pub</p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-button md-raised my-button">More Info</md-button>
+          </div>
+      </md-card>
+
+      <md-card layout="flex" class="weekday" id="thursday">
+        <img src="/images/courthouse.jpg" class="md-card-image place-image" alt="Court'n House">
+        <md-card-content>
+          <h2 class="md-title">THURSDAY</h2>
+          <p>Court'n House</p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-button md-raised my-button">More Info</md-button>
+          </div>
+      </md-card>
+
+      <md-card layout="flex" class="weekday" id="friday">
+        <img src="/images/wagners.jpg" class="md-card-image place-image" alt="Wagner's Lanes">
+        <md-card-content>
+          <h2 class="md-title">FRIDAY</h2>
+          <p>Wagner's Lanes</p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-button md-raised my-button">More Info</md-button>
+          </div>
+      </md-card> -->
+
+      </div>
+
+    <br />
+
+      <div id="info" layout="column">
+        <md-toolbar>
+          <div class="md-toolbar-tools infoTop">
+            <h2>TESTING</h2>
+          </div>
+        </md-toolbar>
+        <md-content>
+          <p>test</p>
+        </md-content>
+        <div class="md-actions" layout="row" layout-align="center">
+          <md-button class="md-button md-raised signupButton">SIGN UP!</md-button>
+        </div>
+      </div>
 
     </div>
 
+
+      <br />
+      <div layout="row">
+        <img src="/images/flamez.gif" class="flame">
+
+      </div>
 
 
 
@@ -48,7 +120,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" class></script>
 
 </body>
 </html>
