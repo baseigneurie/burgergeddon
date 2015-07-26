@@ -2,23 +2,23 @@ package main
 
 import (
 	"net/http"
-	"text/template"
+
+	"github.com/unrolled/render"
 )
 
 func init() {
-	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
-	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
-	http.HandleFunc("/", home)
-	http.ListenAndServe(":8080", nil)
-}
+	r := render.New(render.Options{
+		Directory:     "public",          // Specify what path to load the templates from.
+		Extensions:    []string{".html"}, // Specify extensions to load for templates.
+		IsDevelopment: true,              // Render will now recompile the templates on every HTML response.
+	})
 
-func home(w http.ResponseWriter, r *http.Request) {
-	t, err := template.New("main").ParseFiles("views/main.tmpl")
-	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
-	}
+	mux := http.NewServeMux()
 
-	err = t.ExecuteTemplate(w, "main", nil)
+	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+		r.HTML(w, 200, "index", nil)
+	})
+
+	http.Handle("/", mux)
 
 }
