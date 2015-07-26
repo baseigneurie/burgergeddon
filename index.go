@@ -12,7 +12,6 @@ func init() {
 		Extensions:    []string{".html"}, // Specify extensions to load for templates.
 		IsDevelopment: true,              // Render will now recompile the templates on every HTML response.
 	})
-
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {

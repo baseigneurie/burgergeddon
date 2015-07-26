@@ -8,7 +8,5 @@ handlers:
   static_dir: public/images
 - url: /style
   static_dir: public/style
-- url: /views
-  static_dir: public/views
 - url: /.*
   script: _go_app
