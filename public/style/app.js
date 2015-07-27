@@ -1,14 +1,38 @@
-(function {
-  var app = angular.module('mainApp', ['ngMaterial']);
+(function() {
+  var app = angular.module('mainApp', ['ngMaterial', 'ngRoute']);
+
+  app.config(function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main/index.html',
+        controller: 'WeekController'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup/index.html',
+        controller: 'SignupController'
+      });
+  });
+
 
   app.controller("WeekController", function() {
     this.restaurants = restaurants;
+    this.sel = "";
+
+    this.setDay = function(day) {
+      this.sel = day;
+    };
+
+  });
+
+  app.controller("SignupController", function() {
+
+
   });
 
 
 var restaurants = [
   {
-    name: "Bug Eye'd Betty's",
+    name: "Bug Eyed Betty's",
     day: "Monday",
     date: "8/3/15",
     image: "/images/bugeye.jpg",

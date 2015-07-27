@@ -1,0 +1,31 @@
+<div layout="row" layout-fill>
+ <div id="week" ng-repeat="r in wc.restaurants" >
+    <md-card layout="flex" class="weekday" id="{{r.day}}">
+      <img ng-src="{{r.image}}" class="md-card-image place-image" alt="{{r.name}}">
+      <md-card-content>
+        <h2 class="md-title">{{r.day}} - {{r.date | date:'MM:dd:yy'}}</h2>
+        <p>{{r.name}}</p>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+        <md-button class="my-button" ng-click="wc.setDay(r.day)">More Info</md-button>
+      </div>
+    </md-card>
+  </div>
+</div>
+
+  <br />
+
+    <div id="info" layout="column" ng-repeat="r in wc.restaurants" ng-show="wc.sel == r.day" >
+      <md-toolbar>
+        <div class="md-toolbar-tools infoTop">
+          <h2>{{r.day}} - {{r.date | date:'MM:dd:yy'}}</h2>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <h3>{{r.name}}</h3>
+        <p>{{r.description}}</p>
+      </md-content>
+      <div class="md-actions" layout="row" layout-align="center">
+        <md-button class="md-primary md-raised">SIGN UP!</md-button>
+      </div>
+    </div>
