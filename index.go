@@ -11,6 +11,7 @@ func init() {
 		Directory:     "public",          // Specify what path to load the templates from.
 		Extensions:    []string{".html"}, // Specify extensions to load for templates.
 		IsDevelopment: true,              // Render will now recompile the templates on every HTML response.
+		Delims:        render.Delims{"[[", "]]"},
 	})
 	mux := http.NewServeMux()
 
