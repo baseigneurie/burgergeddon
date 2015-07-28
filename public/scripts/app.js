@@ -12,6 +12,7 @@
         templateUrl: '/views/signup/index.html',
         controller: 'SignupController'
       });
+
   });
 
 
