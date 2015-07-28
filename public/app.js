@@ -5,13 +5,13 @@
   app.config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main/index.html',
+        templateUrl: '/views/main/index.html',
         controller: 'WeekController'
       })
       .when('/signup', {
-        templateUrl: 'views/signup/index.html',
+        templateUrl: '/views/signup/index.html',
         controller: 'SignupController'
-      }).otherwise({redirectTo: '/'});
+      });
   });
 
 
@@ -26,7 +26,7 @@
   });
 
   app.controller("SignupController", function($scope) {
-    $scope.tester="test"
+    $scope.tester="test";
 
   });
 
