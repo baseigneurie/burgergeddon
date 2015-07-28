@@ -1,4 +1,5 @@
-(function() {
+'use strict';
+
   var app = angular.module('mainApp', ['ngMaterial', 'ngRoute']);
 
   app.config(function($routeProvider) {
@@ -10,7 +11,7 @@
       .when('/signup', {
         templateUrl: 'views/signup/index.html',
         controller: 'SignupController'
-      });
+      }).otherwise({redirectTo: '/'});
   });
 
 
@@ -24,8 +25,8 @@
 
   });
 
-  app.controller("SignupController", function() {
-
+  app.controller("SignupController", function($scope) {
+    $scope.tester="test"
 
   });
 
@@ -67,6 +68,3 @@ var restaurants = [
     description: "Burgers in the gutter."
   }
 ];
-
-
-})();
