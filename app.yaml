@@ -8,6 +8,8 @@ handlers:
   static_dir: public/images
 - url: /style
   static_dir: public/style
+- url: /scripts
+  static_dir: public/scripts
 - url: /views
   static_dir: public/views
 - url: /.*
