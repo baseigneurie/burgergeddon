@@ -46,4 +46,9 @@
 
 .flame {
   width: 100%;
+  height: 20em;
+}
+
+#wimpy {
+  height: 25em;
 }

@@ -2,21 +2,22 @@
 
   var app = angular.module('mainApp', ['ngMaterial', 'ngRoute']);
 
-  app.config(function($routeProvider) {
+  app.config(function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/views/main/index.html',
         controller: 'WeekController'
       })
-      .when('/signup', {
+      .when('/signup/:day', {
         templateUrl: '/views/signup/index.html',
         controller: 'SignupController'
-      });
+      }).otherwise({redirectTo:'/'});
 
+      $locationProvider.html5Mode(true);
   });
 
 
-  app.controller("WeekController", function() {
+  app.controller("WeekController", function($location) {
     this.restaurants = restaurants;
     this.sel = "";
 
@@ -24,10 +25,19 @@
       this.sel = day;
     };
 
+    this.go = function(path) {
+      $location.path(path);
+    };
+
   });
 
-  app.controller("SignupController", function($scope) {
-    $scope.tester="test";
+  app.controller("SignupController", function($scope, $route) {
+    $scope.parm = $route.current.params.day;
+    this.entry = {
+      day: "",
+      name: "james",
+      goal: ""
+    };
 
   });
 
