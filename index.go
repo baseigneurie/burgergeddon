@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/unrolled/render"
@@ -19,6 +20,12 @@ func init() {
 		r.HTML(w, 200, "index", nil)
 	})
 
+	mux.HandleFunc("/submit", Signup)
+
 	http.Handle("/", mux)
 
+}
+
+func Signup(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("success")
 }

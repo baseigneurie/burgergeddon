@@ -31,12 +31,33 @@
 
   });
 
-  app.controller("SignupController", function($scope, $route) {
+  app.controller("SignupController", function($scope, $route, $http) {
     $scope.parm = $route.current.params.day;
     this.entry = {
-      day: "",
-      name: "james",
+      day: $scope.parm,
+      name: "",
       goal: ""
+    };
+
+    this.setEntry = function() {
+      $http({
+          method : 'POST',
+          url : '/submit',
+          data : {
+            "sub": {
+              "day": this.entry.day,
+              "name": this.entry.name,
+              "goal": this.entry.goal
+            }
+          },
+          headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+          // set the headers so angular passing info as form data (not request payload)
+          }).success(function(data, status, headers, config) {
+            console.log("horray!");
+          }).error(function(data, status, headers, config) {
+              console.log(status);
+            });
+
     };
 
   });
