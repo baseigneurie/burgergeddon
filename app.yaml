@@ -11,5 +11,7 @@ handlers:
 - url: /scripts
   mime_type: text/javascript
   static_dir: public/scripts
-- url: /
+- url: /views
+  static_dir: public/views
+- url: /.*
   script: _go_app
