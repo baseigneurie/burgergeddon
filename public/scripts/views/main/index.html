@@ -7,7 +7,7 @@
         <p>{{r.name}}</p>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
-        <md-button class="my-button" ng-click="wc.setDay(r.day)">More Info</md-button>
+        <md-button class="my-button" ng-click="setDay(r.day)">More Info</md-button>
       </div>
     </md-card>
   </div>
@@ -15,7 +15,7 @@
 
   <br />
 
-    <div id="info" layout="column" ng-repeat="r in wc.restaurants" ng-show="wc.sel == r.day" >
+    <div id="info" layout="column" ng-repeat="r in wc.restaurants" ng-show="sel == r.day" >
       <md-toolbar>
         <div class="md-toolbar-tools infoTop">
           <h2>{{r.day}} - {{r.date | date:'MM:dd:yy'}}</h2>

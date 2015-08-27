@@ -9,6 +9,7 @@ handlers:
 - url: /style
   static_dir: public/style
 - url: /scripts
+  mime_type: text/javascript
   static_dir: public/scripts
 - url: /views
   static_dir: public/views

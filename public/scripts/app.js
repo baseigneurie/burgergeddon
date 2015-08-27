@@ -1,64 +1,34 @@
 'use strict';
+console.log('here')
+  var app = angular.module('mainApp', ['ngRoute']);
 
-  var app = angular.module('mainApp', ['ngMaterial', 'ngRoute']);
-
-  app.config(function($routeProvider, $locationProvider) {
+  app.config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/views/main/index.html',
+        templateUrl: 'scripts/views/main/index.html',
         controller: 'WeekController'
       })
-      .when('/signup/:day', {
-        templateUrl: '/views/signup/index.html',
+      .when('/signup', {
+        templateUrl: 'scripts/views/signup/index.html',
         controller: 'SignupController'
-      }).otherwise({redirectTo:'/'});
-
-      $locationProvider.html5Mode(true);
+      }).otherwise({redirectTo: '/'});
   });
 
 
-  app.controller("WeekController", function($location) {
+  app.controller("WeekController", function($scope) {
     this.restaurants = restaurants;
     this.sel = "";
 
-    this.setDay = function(day) {
-      this.sel = day;
+    $scope.setDay = function(day) {
+      $scope.sel = day;
     };
-
-    this.go = function(path) {
-      $location.path(path);
+    $scope.wc = {
+      restaurants:restaurants
     };
-
   });
 
-  app.controller("SignupController", function($scope, $route, $http) {
-    $scope.parm = $route.current.params.day;
-    this.entry = {
-      day: $scope.parm,
-      name: "",
-      goal: ""
-    };
-
-    this.setEntry = function() {
-      $http({
-          method : 'POST',
-          url : '/submit',
-          data : {
-            "sub": {
-              "day": this.entry.day,
-              "name": this.entry.name,
-              "goal": this.entry.goal
-            }
-          },
-          headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-          // set the headers so angular passing info as form data (not request payload)
-          }).success(function(data, status, headers, config) {
-            console.log("horray!");
-          }).error(function(data, status, headers, config) {
-              console.log(status);
-            });
-
-    };
+  app.controller("SignupController", function($scope) {
+    $scope.tester="test";
 
   });
 
