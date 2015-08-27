@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" ng-app="mainApp">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Burgergeddon | The beefiest week in the year!</title>
@@ -8,14 +8,12 @@
   <meta name="author" content="Broc 'Beefmeister' Sizzle">
   <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="/style/site.css">
-
-
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 
-<body layout="column" ng-controller="WeekController as wc">
+<body layout="column" ng-controller="WeekController" ng-app="mainApp">
 
     <div id="top" layout="row">
       <div class="main-container" layout="row" layout-align="space-around center">
@@ -49,7 +47,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 
-<script src="app.js" class></script>
+<script src="scripts/app.js" class></script>
 
 </body>
 </html>
