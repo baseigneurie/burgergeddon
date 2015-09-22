@@ -16,32 +16,17 @@
   <![endif]-->
 </head>
 
-<body layout="column" ng-controller="WeekController as wc">
+<body ng-controller="mainApp">
 
-  <div id="top" layout="row">
-    <div class="main-container" layout="row" layout-align="space-around center">
-      <a ng-href="/"><img src="/images/ronmcdon.jpg" id="clown"></a>
-      <span id="title" class="md-flex md-display-4">BURGERGEDDON</span>
-    </div>
-  </div>
+  <div ui-view="header"></div>
 
-  <div layout="row" class="md-display-2" layout-align="center">
-    <span id="tagline">"NO BEEF LEFT BEHIND"</span>
-  </div>
+  <div layout="column" layout-fill>
 
-  <div layout="column" class="main-container">
+  <div ui-view="body" class="main-container"></div>
 
-    <div ng-view></div>
+  <div ui-view="footer"></div>
 
   </div>
-
-
-  <br />
-  <div layout="row">
-    <img src="/images/flamez.gif" class="flame">
-
-  </div>
-
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>

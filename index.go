@@ -1,31 +1,30 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
+	"github.com/codegangsta/negroni"
+	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
 )
 
-func init() {
+func root(w http.ResponseWriter, req *http.Request) {
 	r := render.New(render.Options{
 		Directory:     "public",          // Specify what path to load the templates from.
 		Extensions:    []string{".html"}, // Specify extensions to load for templates.
 		IsDevelopment: true,              // Render will now recompile the templates on every HTML response.
 		Delims:        render.Delims{"[[", "]]"},
 	})
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		r.HTML(w, 200, "index", nil)
-	})
-
-	mux.HandleFunc("/submit", Signup)
-
-	http.Handle("/", mux)
-
+	r.HTML(w, 200, "index", nil)
 }
 
-func Signup(w http.ResponseWriter, req *http.Request) {
-	fmt.Println("success")
+func init() {
+
+	mux := mux.NewRouter()
+
+	mux.HandleFunc("/", root)
+	n := negroni.Classic()
+
+	n.UseHandler(mux)
+	http.Handle("/", mux)
 }
